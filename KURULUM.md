@@ -116,3 +116,15 @@ docker load < nanoskop-image.tar.gz && docker compose up -d
 - Uygulama **tek işlem** olarak çalışmalı (`--workers 1`). Kullanıcıların yüklediği dosyalar belleğin içinde tutulur.
 - Kullanıcıların yüklediği kendi dosyaları diske yazılmaz. Bu dosyalar çıkış yapıldığında ya da 12 saat kullanılmadığında silinir. Uygulama yeniden başlatılırsa da kaybolur.
 - Proje verisinin klasörü (`/data` ya da `/var/lib/nanoskop`) ham veriyi şifrelenmemiş olarak tutar. Sunucuya ve yedeklere erişimi buna göre sınırlayın.
+
+
+
+
+
+
+
+
+cd ~/Desktop/nanoskop
+printf 'NANOSKOP_ADMIN_PASSWORD=2UHdagFXVjBl8v6H\nNANOSKOP_VIEWER_CODE=UZb5gt2NvsTP\nNANOSKOP_SECURE_COOKIE=1\nNANOSKOP_MY_MAX_MB=50\nNANOSKOP_PORT=8000\n' > .env
+chmod 600 .env
+rm -f data/config.json
