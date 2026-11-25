@@ -171,3 +171,17 @@ cd ~/Desktop/nano/nanoskop
 set -a; . ./.env; set +a
 export NANOSKOP_PREPARED=~/Desktop/nano/nanoskop/seed/prepared.pkl.gz
 NANOSKOP_SECURE_COOKIE=0 .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8100
+
+
+
+printf'NANOSKOP_ADMIN_PASSWORD=2UHdagFXVjBl8v6H\nNANOSKOP_VIEWER_CODE=UZb5gt2NvsTP\nNANOSKOP_SECURE_COOKIE=1\nNANOSKOP_MY_MAX_MB=50\nNANOSKOP_PORT=8100\n' > .env
+chmod 600 .env
+rm -f data/config.json data/sample.json
+ls -la .env seed
+
+
+
+printf 'NANOSKOP_ADMIN_PASSWORD=2UHdagFXVjBl8v6H\nNANOSKOP_VIEWER_CODE=UZb5gt2NvsTP\nNANOSKOP_SECURE_COOKIE=1\nNANOSKOP_MY_MAX_MB=50\nNANOSKOP_PORT=8100\n' > .env
+chmod 600 .env
+rm -f data/config.json data/sample.json
+ls -la .env seed
