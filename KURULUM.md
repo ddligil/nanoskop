@@ -210,3 +210,10 @@ export NANOSKOP_PREPARED=$HOME/Desktop/nano/nanoskop/seed/prepared.pkl.gz
 export NANOSKOP_SECURE_COOKIE=0
 rm -f data/config.json data/sample.json
 .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8100
+
+
+
+
+
+
+cd ~/Desktop/nano/nanoskop && rm -f data/config.json data/sample.json && NANOSKOP_ADMIN_PASSWORD=2UHdagFXVjBl8v6H NANOSKOP_VIEWER_CODE=UZb5gt2NvsTP NANOSKOP_PREPARED=$HOME/Desktop/nano/nanoskop/seed/prepared.pkl.gz NANOSKOP_SECURE_COOKIE=0 .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8100
