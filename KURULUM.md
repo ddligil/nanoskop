@@ -136,3 +136,8 @@ rm -f data/config.json
 
 set -a; . ./.env; set +a
 NANOSKOP_PREPARED=$PWD/seed/prepared.pkl.gz NANOSKOP_SECURE_COOKIE=0 .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+
+cd ~/Desktop/nanoskop
+set -a; . ./.env; set +a
+NANOSKOP_PREPARED=$PWD/seed/prepared.pkl.gz NANOSKOP_SECURE_COOKIE=0 .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8100
