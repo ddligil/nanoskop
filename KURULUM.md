@@ -217,3 +217,7 @@ rm -f data/config.json data/sample.json
 
 
 cd ~/Desktop/nano/nanoskop && rm -f data/config.json data/sample.json && NANOSKOP_ADMIN_PASSWORD=2UHdagFXVjBl8v6H NANOSKOP_VIEWER_CODE=UZb5gt2NvsTP NANOSKOP_PREPARED=$HOME/Desktop/nano/nanoskop/seed/prepared.pkl.gz NANOSKOP_SECURE_COOKIE=0 .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8100
+
+
+
+printf '[Unit]\nDescription=Nanoskop\nAfter=network.target\n\n[Service]\nUser=sagis\nWorkingDirectory=/home/sagis/Desktop/nano/nanoskop\nEnvironment=NANOSKOP_PREPARED=/home/sagis/Desktop/nano/nanoskop/seed/prepared.pkl.gz\nEnvironment=NANOSKOP_SECURE_COOKIE=0\nEnvironment=NANOSKOP_TRUST_PROXY=1\nExecStart=/home/sagis/Desktop/nano/nanoskop/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8100 --workers 1\nRestart=always\nRestartSec=5\n\n[Install]\nWantedBy=multi-user.target\n' | sudo tee /etc/systemd/system/nanoskop.service >/dev/null && sudo systemctl daemon-reload && sudo systemctl enable --now nanoskop && sleep 5 && systemctl status nanoskop --no-pager | head -5
