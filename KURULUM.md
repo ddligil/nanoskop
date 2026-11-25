@@ -128,3 +128,11 @@ cd ~/Desktop/nanoskop
 printf 'NANOSKOP_ADMIN_PASSWORD=2UHdagFXVjBl8v6H\nNANOSKOP_VIEWER_CODE=UZb5gt2NvsTP\nNANOSKOP_SECURE_COOKIE=1\nNANOSKOP_MY_MAX_MB=50\nNANOSKOP_PORT=8000\n' > .env
 chmod 600 .env
 rm -f data/config.json
+
+
+
+
+
+
+set -a; . ./.env; set +a
+NANOSKOP_PREPARED=$PWD/seed/prepared.pkl.gz NANOSKOP_SECURE_COOKIE=0 .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
