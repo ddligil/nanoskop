@@ -160,3 +160,11 @@ cd ~/Desktop/nano/nanoskop && ls -la seed && .venv/bin/python -c "
 import gzip,pickle
 p=pickle.load(gzip.open('seed/prepared.pkl.gz','rb'))
 print('VERI TAMAM:', p['ds'].n, 'kayit')"
+
+
+
+
+cd ~/Desktop/nano/nanoskop
+set -a; . ./.env; set +a
+export NANOSKOP_PREPARED=~/Desktop/nano/nanoskop/seed/prepared.pkl.gz
+NANOSKOP_SECURE_COOKIE=0 .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8100
