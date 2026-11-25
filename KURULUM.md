@@ -185,3 +185,13 @@ printf 'NANOSKOP_ADMIN_PASSWORD=2UHdagFXVjBl8v6H\nNANOSKOP_VIEWER_CODE=UZb5gt2Nv
 chmod 600 .env
 rm -f data/config.json data/sample.json
 ls -la .env seed
+
+
+
+
+
+
+cd ~/Desktop/nano/nanoskop && ls -la seed && .venv/bin/python -c "
+import gzip,pickle
+p=pickle.load(gzip.open('seed/prepared.pkl.gz','rb'))
+print('VERI TAMAM:', p['ds'].n, 'kayit')"
