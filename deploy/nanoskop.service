@@ -1,0 +1,19 @@
+# /etc/systemd/system/nanoskop.service   (installation without Docker)
+[Unit]
+Description=Nanoskop
+After=network.target
+
+[Service]
+User=nanoskop
+WorkingDirectory=/opt/nanoskop
+EnvironmentFile=/opt/nanoskop/.env
+Environment=NANOSKOP_DATA=/var/lib/nanoskop
+Environment=NANOSKOP_PREPARED=/opt/nanoskop/seed/prepared.pkl.gz
+Environment=NANOSKOP_TRUST_PROXY=1
+Environment=NUMBA_CACHE_DIR=/var/lib/nanoskop/.numba
+ExecStart=/opt/nanoskop/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 1
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

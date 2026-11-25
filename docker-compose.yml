@@ -1,0 +1,18 @@
+services:
+  nanoskop:
+    build: .
+    image: nanoskop:latest
+    container_name: nanoskop
+    restart: unless-stopped
+    # Only this machine can reach port 8000; Nginx (or the institution's proxy) serves it to users.
+    ports: ["127.0.0.1:${NANOSKOP_PORT:-8000}:8000"]
+    environment:
+      NANOSKOP_ADMIN_PASSWORD: ${NANOSKOP_ADMIN_PASSWORD:?Set NANOSKOP_ADMIN_PASSWORD in .env}
+      NANOSKOP_VIEWER_CODE: ${NANOSKOP_VIEWER_CODE:?Set NANOSKOP_VIEWER_CODE in .env}
+      NANOSKOP_SECURE_COOKIE: ${NANOSKOP_SECURE_COOKIE:-1}
+      NANOSKOP_TRUST_PROXY: "1"
+      NANOSKOP_MY_MAX_MB: ${NANOSKOP_MY_MAX_MB:-50}
+    volumes: ["nanoskop-data:/data"]
+    mem_limit: 3g
+volumes:
+  nanoskop-data:
