@@ -152,3 +152,11 @@ cd ~/Desktop/nanoskop && ls -la seed && .venv/bin/python -c "
 import gzip,pickle
 p=pickle.load(gzip.open('seed/prepared.pkl.gz','rb'))
 print('VERI TAMAM:', p['ds'].n, 'kayit')"
+
+
+
+
+cd ~/Desktop/nano/nanoskop && ls -la seed && .venv/bin/python -c "
+import gzip,pickle
+p=pickle.load(gzip.open('seed/prepared.pkl.gz','rb'))
+print('VERI TAMAM:', p['ds'].n, 'kayit')"
