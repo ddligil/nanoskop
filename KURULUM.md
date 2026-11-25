@@ -145,3 +145,10 @@ NANOSKOP_PREPARED=$PWD/seed/prepared.pkl.gz NANOSKOP_SECURE_COOKIE=0 .venv/bin/u
 
 
 UZb5gt2NvsTP
+
+
+
+cd ~/Desktop/nanoskop && ls -la seed && .venv/bin/python -c "
+import gzip,pickle
+p=pickle.load(gzip.open('seed/prepared.pkl.gz','rb'))
+print('VERI TAMAM:', p['ds'].n, 'kayit')"
